@@ -31,15 +31,15 @@ public class Hooks {
         try {
             driver.get(fileUrl);
 
-            WebDriverWait wait = new WebDriverWait(driver, 30);
-            WebElement downloadButton = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Download")));
+            WebDriverWait wait = new WebDriverWait(driver, 3);
+            WebElement downloadButton = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Guardar imagem como...")));
 
             downloadButton.click();
 
             // Aguardar o download ser concluído
             File downloadedFile = new File(downloadPath);
             while (!downloadedFile.exists()) {
-                Thread.sleep(1000);
+                Thread.sleep(3000);
             }
 
             // Anexar o arquivo baixado ao cenário (não incluído aqui, pois o cenário não é passado como argumento)
